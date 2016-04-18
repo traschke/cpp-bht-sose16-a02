@@ -6,8 +6,15 @@
 #define CPP_BHT_SOSE16_A02_FIXED_POINT_H
 
 
-class fixed_point {
+#include <cstdint>
 
+class fixed_point {
+public:
+    fixed_point(float x);
+
+    explicit operator int() const;
+private:
+    std::int32_t q;
 };
 
 
