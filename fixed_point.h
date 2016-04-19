@@ -13,6 +13,9 @@ public:
     fixed_point(float x);
 
     explicit operator int() const;
+
+    bool operator==(fixed_point rhs) const;
+    bool operator!=(fixed_point rhs) const;
 private:
     std::int32_t q;
 };

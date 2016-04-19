@@ -50,18 +50,21 @@ int main()
     // -------------------------------------------------------------------------
     EXPECT_EQ(  6 , int(fp1) );
     EXPECT_EQ( -4 , int(fp2) );
-#if 0
-    EXPECT_EQ(  fp1 , abs(fp1) );
-    EXPECT_EQ( -fp2 , abs(fp2) );
+
+    //EXPECT_EQ(  fp1 , abs(fp1) );
+    //EXPECT_EQ( -fp2 , abs(fp2) );
 
     // -------------------------------------------------------------------------
     // comparison and ordering
     assert( fp1 == fixed_point(6.375) );
+
     assert( fp2 != fp1 );
+#if 0
     assert( fp2 <  fp1  );
     assert( fp1 >  fp2  );
     assert( fp2 <= fp1 );
     assert( fp1 >= fp2 );
+
 
     // -------------------------------------------------------------------------
     // arithmetics
