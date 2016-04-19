@@ -59,8 +59,8 @@ int main()
     assert( fp1 == fixed_point(6.375) );
 
     assert( fp2 != fp1 );
-#if 0
     assert( fp2 <  fp1  );
+#if 0
     assert( fp1 >  fp2  );
     assert( fp2 <= fp1 );
     assert( fp1 >= fp2 );
