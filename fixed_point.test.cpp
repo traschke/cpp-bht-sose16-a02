@@ -61,8 +61,8 @@ int main()
     assert( fp2 != fp1 );
     assert( fp2 <  fp1  );
     assert( fp1 >  fp2  );
-#if 0
     assert( fp2 <= fp1 );
+#if 0
     assert( fp1 >= fp2 );
 
 
