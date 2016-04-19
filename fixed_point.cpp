@@ -9,7 +9,30 @@ fixed_point::fixed_point(float x) {
     q = x * std::pow(2, 16);
 }
 
-
 fixed_point::operator int() const {
     return q / std::pow(2, 16);
+}
+
+bool fixed_point::operator==(fixed_point rhs) const {
+    return q == rhs.q;
+}
+
+bool fixed_point::operator!=(fixed_point rhs) const {
+    return q != rhs.q;
+}
+
+bool fixed_point::operator<(fixed_point rhs) const {
+    return q < rhs.q;
+}
+
+bool fixed_point::operator>(fixed_point rhs) const {
+    return q > rhs.q;
+}
+
+bool fixed_point::operator<=(fixed_point rhs) const {
+    return q <= rhs.q;
+}
+
+bool fixed_point::operator>=(fixed_point rhs) const {
+    return q >= rhs.q;
 }
