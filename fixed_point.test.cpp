@@ -51,6 +51,7 @@ int main()
     EXPECT_EQ(  6 , int(fp1) );
     EXPECT_EQ( -4 , int(fp2) );
 
+    //TODO abs() needs to be implemented!
     //EXPECT_EQ(  fp1 , abs(fp1) );
     //EXPECT_EQ( -fp2 , abs(fp2) );
 
@@ -62,8 +63,8 @@ int main()
     assert( fp2 <  fp1  );
     assert( fp1 >  fp2  );
     assert( fp2 <= fp1 );
-#if 0
     assert( fp1 >= fp2 );
+#if 0
 
 
     // -------------------------------------------------------------------------
