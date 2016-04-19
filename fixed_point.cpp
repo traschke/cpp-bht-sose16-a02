@@ -25,3 +25,8 @@ bool fixed_point::operator<(fixed_point rhs) const {
     return q < rhs.q;
 }
 
+bool fixed_point::operator>(fixed_point rhs) const {
+    return q > rhs.q;
+}
+
+
