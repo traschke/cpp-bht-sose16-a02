@@ -17,6 +17,14 @@ fixed_point::operator float() const {
     return q / std::pow(2, 16);
 }
 
+fixed_point abs(fixed_point fixedPoint) {
+    if (fixedPoint >= 0) {
+        return fixedPoint;
+    } else {
+        return -fixedPoint;
+    }
+}
+
 fixed_point fixed_point::operator+() const {
     fixed_point temp(*this);
     return temp;

@@ -15,6 +15,8 @@ public:
     explicit operator int() const;
     explicit operator float() const;
 
+    friend fixed_point abs(fixed_point fixedPoint);
+
     fixed_point operator+() const;
     fixed_point operator-() const;
     fixed_point operator+(fixed_point rhs) const;
