@@ -116,3 +116,23 @@ fixed_point &fixed_point::operator-=(fixed_point rhs) {
     q -= rhs.q;
     return *this;
 }
+
+fixed_point &fixed_point::operator/=(fixed_point rhs) {
+    int32_t result;
+    int64_t temp;
+
+    temp = (int64_t) q << 16;
+
+    if ((temp >= 0 && rhs.q >= 0) || (temp < 0 && rhs.q < 0)) {
+        temp += rhs.q / 2;
+    } else {
+        temp -= rhs.q / 2;
+    }
+
+    result = (int32_t)(temp / rhs.q);
+
+    q = result;
+
+    return *this;
+}
+
