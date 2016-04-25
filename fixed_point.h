@@ -15,6 +15,7 @@ public:
     explicit operator int() const;
     explicit operator float() const;
 
+    fixed_point operator+() const;
     fixed_point operator-() const;
 
     bool operator==(fixed_point rhs) const;

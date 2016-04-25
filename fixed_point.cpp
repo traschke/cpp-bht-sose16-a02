@@ -17,6 +17,11 @@ fixed_point::operator float() const {
     return q / std::pow(2, 16);
 }
 
+fixed_point fixed_point::operator+() const {
+    fixed_point temp(*this);
+    return temp;
+}
+
 fixed_point fixed_point::operator-() const {
     fixed_point temp(*this);
     temp.q = -temp.q;
