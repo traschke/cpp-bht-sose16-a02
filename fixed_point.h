@@ -24,6 +24,10 @@ public:
     bool operator>(fixed_point rhs) const;
     bool operator<=(fixed_point rhs) const;
     bool operator>=(fixed_point rhs) const;
+    fixed_point& operator++();
+    fixed_point operator++(int);
+    fixed_point& operator--();
+    fixed_point operator--(int);
 private:
     std::int32_t q;
 };

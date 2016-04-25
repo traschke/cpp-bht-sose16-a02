@@ -51,3 +51,25 @@ bool fixed_point::operator<=(fixed_point rhs) const {
 bool fixed_point::operator>=(fixed_point rhs) const {
     return q >= rhs.q;
 }
+
+fixed_point& fixed_point::operator++() {
+    q += std::pow(2, 16);
+    return *this;
+}
+
+fixed_point fixed_point::operator++(int) {
+    fixed_point temp = *this;
+    q += std::pow(2, 16);
+    return temp;
+}
+
+fixed_point& fixed_point::operator--() {
+    q -= std::pow(2, 16);
+    return *this;
+}
+
+fixed_point fixed_point::operator--(int) {
+    fixed_point temp = *this;
+    q -= std::pow(2, 16);
+    return temp;
+}
