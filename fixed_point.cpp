@@ -18,11 +18,10 @@ fixed_point::operator float() const {
 }
 
 fixed_point abs(fixed_point fixedPoint) {
-    float temp = (float) fixedPoint;
-    if (temp >= 0) {
-        return fixed_point(temp);
+    if (fixedPoint >= 0) {
+        return fixedPoint;
     } else {
-        return fixed_point(-temp);
+        return -fixedPoint;
     }
 }
 
