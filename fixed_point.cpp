@@ -28,6 +28,12 @@ fixed_point fixed_point::operator-() const {
     return temp;
 }
 
+fixed_point fixed_point::operator+(fixed_point rhs) const {
+    fixed_point temp(*this);
+    temp.q += rhs.q;
+    return temp;
+}
+
 bool fixed_point::operator==(fixed_point rhs) const {
     return q == rhs.q;
 }
