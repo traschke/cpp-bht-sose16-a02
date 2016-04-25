@@ -86,6 +86,12 @@ fixed_point fixed_point::operator-(fixed_point rhs) const {
     return temp;
 }
 
+fixed_point fixed_point::operator*(fixed_point rhs) const {
+    fixed_point lhs = *this;
+    lhs.q = ((int64_t)lhs.q * (int64_t)rhs.q) >> 16;
+    return lhs;
+}
+
 fixed_point fixed_point::operator/(fixed_point rhs) const {
     fixed_point tempFixed(*this);
 
