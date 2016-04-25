@@ -78,8 +78,8 @@ int main()
     // arithmetics assignment
     fixed_point
     fp3 = fp1;  fp3 += fp2;     EXPECT_EQ( fixed_point( 2.375f  ) , fp3 );
-#if 0
     fp3 = fp1;  fp3 -= fp2;     EXPECT_EQ( fixed_point( 10.375f ) , fp3 );
+#if 0
     fp3 = fp1;  fp3 *= fp2;     EXPECT_EQ( fixed_point(-25.5f   ) , fp3 );
     fp3 = fp1;  fp3 /= fp2;     EXPECT_EQ( fixed_point(-1.59375f) , fp3 );
 #endif

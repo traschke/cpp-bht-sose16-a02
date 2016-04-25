@@ -111,3 +111,8 @@ fixed_point &fixed_point::operator+=(fixed_point rhs) {
     q += rhs.q;
     return *this;
 }
+
+fixed_point &fixed_point::operator-=(fixed_point rhs) {
+    q -= rhs.q;
+    return *this;
+}

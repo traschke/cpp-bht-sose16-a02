@@ -22,6 +22,7 @@ public:
     fixed_point operator/(fixed_point rhs) const;
 
     fixed_point &operator+=(fixed_point rhs);
+    fixed_point &operator-=(fixed_point rhs);
 
     bool operator==(fixed_point rhs) const;
     bool operator!=(fixed_point rhs) const;
