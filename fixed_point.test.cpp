@@ -58,7 +58,7 @@ int main()
     // -------------------------------------------------------------------------
     // comparison and ordering
     assert( fp1 == fixed_point(6.375) );
-    assert( -fp1 == fixed_point(-6.375));
+    assert( -fp1 == fixed_point(-6.375f));
     assert( fp2 != fp1 );
     assert( fp2 <  fp1  );
     assert( fp1 >  fp2  );
@@ -79,7 +79,7 @@ int main()
     fixed_point
     fp3 = fp1;  fp3 += fp2;     EXPECT_EQ( fixed_point( 2.375f  ) , fp3 );
     fp3 = fp1;  fp3 -= fp2;     EXPECT_EQ( fixed_point( 10.375f ) , fp3 );
-//    fp3 = fp1;  fp3 *= fp2;     EXPECT_EQ( fixed_point(-25.5f   ) , fp3 );
+    fp3 = fp1;  fp3 *= fp2;     EXPECT_EQ( fixed_point(-25.5f   ) , fp3 );
     fp3 = fp1;  fp3 /= fp2;     EXPECT_EQ( fixed_point(-1.59375f) , fp3 );
 
     // -------------------------------------------------------------------------
