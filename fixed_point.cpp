@@ -106,3 +106,8 @@ fixed_point fixed_point::operator/(fixed_point rhs) const {
 
     return tempFixed;
 }
+
+fixed_point &fixed_point::operator+=(fixed_point rhs) {
+    q += rhs.q;
+    return *this;
+}
