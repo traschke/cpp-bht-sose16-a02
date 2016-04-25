@@ -58,7 +58,7 @@ int main()
     // -------------------------------------------------------------------------
     // comparison and ordering
     assert( fp1 == fixed_point(6.375) );
-
+    assert( -fp1 == fixed_point(-6.375));
     assert( fp2 != fp1 );
     assert( fp2 <  fp1  );
     assert( fp1 >  fp2  );
