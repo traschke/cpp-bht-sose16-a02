@@ -79,3 +79,10 @@ fixed_point fixed_point::operator--(int) {
     q -= std::pow(2, 16);
     return temp;
 }
+
+fixed_point fixed_point::operator-(fixed_point rhs) const {
+    fixed_point temp = *this;
+    temp.q -= rhs.q;
+    return temp;
+}
+
