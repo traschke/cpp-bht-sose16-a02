@@ -70,9 +70,9 @@ int main()
     // arithmetics
     // EXPECT_EQ( fixed_point( 2.375f  ) , fp1 + fp2 );
     EXPECT_EQ( fixed_point( 10.375f ) , fp1 - fp2 );
-#if 0
-    EXPECT_EQ( fixed_point(-25.5f   ) , fp1 * fp2 );
+    //EXPECT_EQ( fixed_point(-25.5f   ) , fp1 * fp2 );
     EXPECT_EQ( fixed_point(-1.59375f) , fp1 / fp2 );
+#if 0
 
     // -------------------------------------------------------------------------
     // arithmetics assignment
