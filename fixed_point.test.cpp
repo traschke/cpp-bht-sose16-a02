@@ -34,11 +34,11 @@
 }                                                     \
 
 
-/*auto operator<< ( std::ostream& os , fixed_point const & f ) -> std::ostream&
+auto operator<< ( std::ostream& os , fixed_point const & f ) -> std::ostream&
 {
     os << float(f);
     return os;
-}*/
+}
 
 
 
@@ -58,13 +58,12 @@ int main()
     // -------------------------------------------------------------------------
     // comparison and ordering
     assert( fp1 == fixed_point(6.375) );
-
+    assert( -fp1 == fixed_point(-6.375f));
     assert( fp2 != fp1 );
     assert( fp2 <  fp1  );
     assert( fp1 >  fp2  );
     assert( fp2 <= fp1 );
     assert( fp1 >= fp2 );
-#if 0
 
 
     // -------------------------------------------------------------------------
@@ -73,6 +72,7 @@ int main()
     EXPECT_EQ( fixed_point( 10.375f ) , fp1 - fp2 );
     EXPECT_EQ( fixed_point(-25.5f   ) , fp1 * fp2 );
     EXPECT_EQ( fixed_point(-1.59375f) , fp1 / fp2 );
+
 
     // -------------------------------------------------------------------------
     // arithmetics assignment
@@ -88,7 +88,7 @@ int main()
     fp3 = fp1;  EXPECT_EQ( fixed_point(5.375f) , --fp3 );
     fp3 = fp1;  EXPECT_EQ( fixed_point(6.375f) , fp3++ );  EXPECT_EQ( fixed_point(7.375f) , fp3 );
     fp3 = fp1;  EXPECT_EQ( fixed_point(6.375f) , fp3-- );  EXPECT_EQ( fixed_point(5.375f) , fp3 );
-
+#if 0
     // -------------------------------------------------------------------------
     // trigonometric functions
     EXPECT_CLOSE( fixed_point(std::sin(0.5f)) , sin(fixed_point(0.5f)) , fixed_point(0.01) );
