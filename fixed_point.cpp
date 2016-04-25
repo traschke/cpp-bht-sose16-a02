@@ -96,7 +96,7 @@ fixed_point fixed_point::operator-(fixed_point rhs) const {
 
 fixed_point fixed_point::operator*(fixed_point rhs) const {
     fixed_point lhs = *this;
-    (int64_t)lhs.q = ((int64_t)lhs.q * (int64_t)rhs.q) >> 16;
+    lhs.q = ((int64_t)lhs.q * (int64_t)rhs.q) >> 16;
     return lhs;
 }
 
@@ -151,7 +151,7 @@ fixed_point &fixed_point::operator/=(fixed_point rhs) {
 }
 
 fixed_point &fixed_point::operator*=(fixed_point rhs) {
-    (int64_t)q = ((int64_t)q * (int64_t)rhs.q) >> 16;
+    q = ((int64_t)q * (int64_t)rhs.q) >> 16;
     return *this;
 }
 
