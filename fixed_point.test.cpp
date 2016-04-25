@@ -52,8 +52,8 @@ int main()
     EXPECT_EQ( -4 , int(fp2) );
 
     //TODO abs() needs to be implemented!
-    //EXPECT_EQ(  fp1 , abs(fp1) );
-    //EXPECT_EQ( -fp2 , abs(fp2) );
+    EXPECT_EQ(  fp1 , abs(fp1) );
+    EXPECT_EQ( -fp2 , abs(fp2) );
 
     // -------------------------------------------------------------------------
     // comparison and ordering
