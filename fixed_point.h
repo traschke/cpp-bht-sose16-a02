@@ -39,9 +39,12 @@ public:
     fixed_point operator++(int);
     fixed_point& operator--();
     fixed_point operator--(int);
+
 private:
     std::int32_t q;
 };
 
+fixed_point sin(fixed_point x);
+fixed_point cos(fixed_point x);
 
 #endif //CPP_BHT_SOSE16_A02_FIXED_POINT_H

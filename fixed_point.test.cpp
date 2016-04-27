@@ -88,10 +88,9 @@ int main()
     fp3 = fp1;  EXPECT_EQ( fixed_point(5.375f) , --fp3 );
     fp3 = fp1;  EXPECT_EQ( fixed_point(6.375f) , fp3++ );  EXPECT_EQ( fixed_point(7.375f) , fp3 );
     fp3 = fp1;  EXPECT_EQ( fixed_point(6.375f) , fp3-- );  EXPECT_EQ( fixed_point(5.375f) , fp3 );
-#if 0
+
     // -------------------------------------------------------------------------
     // trigonometric functions
     EXPECT_CLOSE( fixed_point(std::sin(0.5f)) , sin(fixed_point(0.5f)) , fixed_point(0.01) );
     EXPECT_CLOSE( fixed_point(std::cos(0.5f)) , cos(fixed_point(0.5f)) , fixed_point(0.01) );
-#endif
 }

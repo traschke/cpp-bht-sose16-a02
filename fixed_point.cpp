@@ -155,5 +155,15 @@ fixed_point &fixed_point::operator*=(fixed_point rhs) {
     return *this;
 }
 
+fixed_point sin(fixed_point x) {
+    return x - (x*x*x)/6 + (x*x*x*x*x)/120 - (x*x*x*x*x*x*x)/5040;
+}
+
+fixed_point cos(fixed_point x) {
+    return fixed_point(1.f) - (x*x)/2 + (x*x*x*x)/24 - (x*x*x*x*x*x*x)/720;
+}
+
+
+
 
 
