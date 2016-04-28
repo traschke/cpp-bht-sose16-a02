@@ -8,6 +8,7 @@
 
 #include <cstdint>
 
+template <int8_t Decimal, int8_t Fraction>
 class fixed_point {
 public:
     fixed_point(float x);
@@ -15,7 +16,8 @@ public:
     explicit operator int() const;
     explicit operator float() const;
 
-    friend fixed_point abs(fixed_point fixedPoint);
+    template <int8_t DecimalF, int8_t FractionF>
+    friend fixed_point<DecimalF, FractionF> abs(fixed_point<DecimalF, FractionF> fixedPoint);
 
     fixed_point operator+() const;
     fixed_point operator-() const;
@@ -35,6 +37,7 @@ public:
     bool operator>(fixed_point rhs) const;
     bool operator<=(fixed_point rhs) const;
     bool operator>=(fixed_point rhs) const;
+
     fixed_point& operator++();
     fixed_point operator++(int);
     fixed_point& operator--();
@@ -44,7 +47,10 @@ private:
     std::int32_t q;
 };
 
-fixed_point sin(fixed_point x);
-fixed_point cos(fixed_point x);
+template <int8_t Decimal, int8_t Fraction>
+fixed_point<Decimal, Fraction> sin(fixed_point<Decimal, Fraction> x);
+
+template <int8_t Decimal, int8_t Fraction>
+fixed_point<Decimal, Fraction> cos(fixed_point<Decimal, Fraction> x);
 
 #endif //CPP_BHT_SOSE16_A02_FIXED_POINT_H
