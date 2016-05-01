@@ -75,18 +75,32 @@ public:
     }
 
     fixed_point operator*(fixed_point rhs) const {
-        doubled_impl_type temp = (((doubled_impl_type)q) * ((doubled_impl_type)rhs.q)) >> Fraction;
-        fixed_point<Decimal, Fraction> fp((impl_type)temp);
-        return fp;
+//        doubled_impl_type temp = (((doubled_impl_type)q) * ((doubled_impl_type)rhs.q)) >> Fraction;
+//        fixed_point<Decimal, Fraction> fp((impl_type)temp);
+//        return fp;
+
+        fixed_point<Decimal, Fraction> tempFixed(*this);
+
+        impl_type result;
+        doubled_impl_type temp;
+
+        temp = (doubled_impl_type) q * (doubled_impl_type) rhs.q;
+        temp += Decimal;
+
+        result = (impl_type) temp;
+
+        tempFixed.q = result;
+
+        return tempFixed;
     }
 
     fixed_point operator/(fixed_point rhs) const {
         fixed_point<Decimal, Fraction> tempFixed(*this);
 
-        int32_t result;
-        int64_t temp;
+        impl_type result;
+        doubled_impl_type temp;
 
-        temp = (int64_t) q << 16;
+        temp = (doubled_impl_type) q << Fraction;
 
         if ((temp >= 0 && rhs.q >= 0) || (temp < 0 && rhs.q < 0)) {
             temp += rhs.q / 2;
@@ -94,7 +108,7 @@ public:
             temp -= rhs.q / 2;
         }
 
-        result = (int32_t)(temp / rhs.q);
+        result = (impl_type)(temp / rhs.q);
 
         tempFixed.q = result;
 
@@ -112,15 +126,16 @@ public:
     }
 
     fixed_point &operator*=(fixed_point rhs) {
-        q = ((int64_t)q * (int64_t)rhs.q) >> 16;
+        doubled_impl_type temp = ((doubled_impl_type)q * (doubled_impl_type)rhs.q) >> Fraction;
+        q = (impl_type) temp;
         return *this;
     }
 
     fixed_point &operator/=(fixed_point rhs) {
-        int32_t result;
-        int64_t temp;
+        impl_type result;
+        doubled_impl_type temp;
 
-        temp = (int64_t) q << 16;
+        temp = (doubled_impl_type) q << Fraction;
 
         if ((temp >= 0 && rhs.q >= 0) || (temp < 0 && rhs.q < 0)) {
             temp += rhs.q / 2;
@@ -128,7 +143,7 @@ public:
             temp -= rhs.q / 2;
         }
 
-        result = (int32_t)(temp / rhs.q);
+        result = (impl_type)(temp / rhs.q);
 
         q = result;
 
@@ -176,7 +191,7 @@ public:
     }
 
 private:
-    std::int32_t q;
+    impl_type q;
 };
 
 template <int8_t Decimal, int8_t Fraction>
