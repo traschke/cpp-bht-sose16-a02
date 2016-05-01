@@ -5,165 +5,193 @@
 #include <cmath>
 #include "fixed_point.h"
 
-fixed_point::fixed_point(float x) {
-    q = x * std::pow(2, 16);
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction>::fixed_point(float x) {
+//    //q = x * std::pow(2, 16);
+//    q = x * std::pow(2, Fraction);
+//}
 
-fixed_point::operator int() const {
-    return q / std::pow(2, 16);
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction>::operator int() const {
+//    return q / std::pow(2, Fraction);
+//}
 
-fixed_point::operator float() const {
-    return q / std::pow(2, 16);
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction>::operator float() const {
+//    return q / std::pow(2, Fraction);
+//}
 
-fixed_point abs(fixed_point fixedPoint) {
-    if (fixedPoint >= 0) {
-        return fixedPoint;
-    } else {
-        return -fixedPoint;
-    }
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> abs(fixed_point<Decimal, Fraction> fixedPoint) {
+//    if (fixedPoint >= 0) {
+//        return fixedPoint;
+//    } else {
+//        return -fixedPoint;
+//    }
+//}
 
-fixed_point fixed_point::operator+() const {
-    fixed_point temp(*this);
-    return temp;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator+() const {
+//    fixed_point temp(*this);
+//    return temp;
+//}
 
-fixed_point fixed_point::operator-() const {
-    fixed_point temp(*this);
-    temp.q = -temp.q;
-    return temp;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator-() const {
+//    fixed_point temp(*this);
+//    temp.q = -temp.q;
+//    return temp;
+//}
 
-fixed_point fixed_point::operator+(fixed_point rhs) const {
-    fixed_point temp(*this);
-    temp.q += rhs.q;
-    return temp;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator+(fixed_point<Decimal, Fraction> rhs) const {
+//    fixed_point<Decimal, Fraction> temp(*this);
+//    temp.q += rhs.q;
+//    return temp;
+//}
 
-bool fixed_point::operator==(fixed_point rhs) const {
-    return q == rhs.q;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//bool fixed_point<Decimal, Fraction>::operator==(fixed_point<Decimal, Fraction> rhs) const {
+//    return q == rhs.q;
+//}
 
-bool fixed_point::operator!=(fixed_point rhs) const {
-    return q != rhs.q;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//bool fixed_point<Decimal, Fraction>::operator!=(fixed_point<Decimal, Fraction> rhs) const {
+//    return q != rhs.q;
+//}
 
-bool fixed_point::operator<(fixed_point rhs) const {
-    return q < rhs.q;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//bool fixed_point<Decimal, Fraction>::operator<(fixed_point<Decimal, Fraction> rhs) const {
+//    return q < rhs.q;
+//}
 
-bool fixed_point::operator>(fixed_point rhs) const {
-    return q > rhs.q;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//bool fixed_point<Decimal, Fraction>::operator>(fixed_point<Decimal, Fraction> rhs) const {
+//    return q > rhs.q;
+//}
 
-bool fixed_point::operator<=(fixed_point rhs) const {
-    return q <= rhs.q;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//bool fixed_point<Decimal, Fraction>::operator<=(fixed_point<Decimal, Fraction> rhs) const {
+//    return q <= rhs.q;
+//}
 
-bool fixed_point::operator>=(fixed_point rhs) const {
-    return q >= rhs.q;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//bool fixed_point<Decimal, Fraction>::operator>=(fixed_point<Decimal, Fraction> rhs) const {
+//    return q >= rhs.q;
+//}
 
-fixed_point& fixed_point::operator++() {
-    q += std::pow(2, 16);
-    return *this;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction>& fixed_point<Decimal, Fraction>::operator++() {
+//    q += std::pow(2, 16);
+//    return *this;
+//}
 
-fixed_point fixed_point::operator++(int) {
-    fixed_point temp = *this;
-    q += std::pow(2, 16);
-    return temp;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator++(int) {
+//    fixed_point<Decimal, Fraction> temp = *this;
+//    q += std::pow(2, 16);
+//    return temp;
+//}
 
-fixed_point& fixed_point::operator--() {
-    q -= std::pow(2, 16);
-    return *this;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction>& fixed_point<Decimal, Fraction>::operator--() {
+//    q -= std::pow(2, 16);
+//    return *this;
+//}
 
-fixed_point fixed_point::operator--(int) {
-    fixed_point temp = *this;
-    q -= std::pow(2, 16);
-    return temp;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator--(int) {
+//    fixed_point<Decimal, Fraction> temp = *this;
+//    q -= std::pow(2, 16);
+//    return temp;
+//}
 
-fixed_point fixed_point::operator-(fixed_point rhs) const {
-    fixed_point temp = *this;
-    temp.q -= rhs.q;
-    return temp;
-}
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator-(fixed_point<Decimal, Fraction> rhs) const {
+//    fixed_point<Decimal, Fraction> temp = *this;
+//    temp.q -= rhs.q;
+//    return temp;
+//}
 
-fixed_point fixed_point::operator*(fixed_point rhs) const {
-    fixed_point lhs = *this;
-    lhs.q = ((int64_t)lhs.q * (int64_t)rhs.q) >> 16;
-    return lhs;
-}
+//// TODO Values of type 'int64_t' may not fit into the receiver type 'int32_t'
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator*(fixed_point<Decimal, Fraction> rhs) const {
+//    doubled_impl_type temp = (((doubled_impl_type)q) * ((doubled_impl_type)rhs.q)) >> Fraction;
+//    fixed_point<Decimal, Fraction> fp((impl_type)temp);
+//    return fp;
+//}
 
-fixed_point fixed_point::operator/(fixed_point rhs) const {
-    fixed_point tempFixed(*this);
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator/(fixed_point<Decimal, Fraction> rhs) const {
+//    fixed_point<Decimal, Fraction> tempFixed(*this);
+//
+//    int32_t result;
+//    int64_t temp;
+//
+//    temp = (int64_t) q << 16;
+//
+//    if ((temp >= 0 && rhs.q >= 0) || (temp < 0 && rhs.q < 0)) {
+//        temp += rhs.q / 2;
+//    } else {
+//        temp -= rhs.q / 2;
+//    }
+//
+//    result = (int32_t)(temp / rhs.q);
+//
+//    tempFixed.q = result;
+//
+//    return tempFixed;
+//}
 
-    int32_t result;
-    int64_t temp;
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> &fixed_point<Decimal, Fraction>::operator+=(fixed_point<Decimal, Fraction> rhs) {
+//    q += rhs.q;
+//    return *this;
+//}
+//
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> &fixed_point<Decimal, Fraction>::operator-=(fixed_point<Decimal, Fraction> rhs) {
+//    q -= rhs.q;
+//    return *this;
+//}
+//
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> &fixed_point<Decimal, Fraction>::operator/=(fixed_point<Decimal, Fraction> rhs) {
+//    int32_t result;
+//    int64_t temp;
+//
+//    temp = (int64_t) q << 16;
+//
+//    if ((temp >= 0 && rhs.q >= 0) || (temp < 0 && rhs.q < 0)) {
+//        temp += rhs.q / 2;
+//    } else {
+//        temp -= rhs.q / 2;
+//    }
+//
+//    result = (int32_t)(temp / rhs.q);
+//
+//    q = result;
+//
+//    return *this;
+//}
 
-    temp = (int64_t) q << 16;
+// TODO Values of type 'int64_t' may not fit into the receiver type 'int32_t'
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> &fixed_point<Decimal, Fraction>::operator*=(fixed_point<Decimal, Fraction> rhs) {
+//    q = ((int64_t)q * (int64_t)rhs.q) >> 16;
+//    return *this;
+//}
 
-    if ((temp >= 0 && rhs.q >= 0) || (temp < 0 && rhs.q < 0)) {
-        temp += rhs.q / 2;
-    } else {
-        temp -= rhs.q / 2;
-    }
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> sin(fixed_point<Decimal, Fraction> x) {
+//    return x - (x*x*x)/6 + (x*x*x*x*x)/120 - (x*x*x*x*x*x*x)/5040;
+//}
 
-    result = (int32_t)(temp / rhs.q);
+//template <int8_t Decimal, int8_t Fraction>
+//fixed_point<Decimal, Fraction> cos(fixed_point<Decimal, Fraction> x) {
+//    return fixed_point<Decimal, Fraction>(1.f) - (x*x)/2 + (x*x*x*x)/24 - (x*x*x*x*x*x*x)/720;
+//}
 
-    tempFixed.q = result;
-
-    return tempFixed;
-}
-
-fixed_point &fixed_point::operator+=(fixed_point rhs) {
-    q += rhs.q;
-    return *this;
-}
-
-fixed_point &fixed_point::operator-=(fixed_point rhs) {
-    q -= rhs.q;
-    return *this;
-}
-
-fixed_point &fixed_point::operator/=(fixed_point rhs) {
-    int32_t result;
-    int64_t temp;
-
-    temp = (int64_t) q << 16;
-
-    if ((temp >= 0 && rhs.q >= 0) || (temp < 0 && rhs.q < 0)) {
-        temp += rhs.q / 2;
-    } else {
-        temp -= rhs.q / 2;
-    }
-
-    result = (int32_t)(temp / rhs.q);
-
-    q = result;
-
-    return *this;
-}
-
-fixed_point &fixed_point::operator*=(fixed_point rhs) {
-    q = ((int64_t)q * (int64_t)rhs.q) >> 16;
-    return *this;
-}
-
-fixed_point sin(fixed_point x) {
-    return x - (x*x*x)/6 + (x*x*x*x*x)/120 - (x*x*x*x*x*x*x)/5040;
-}
-
-fixed_point cos(fixed_point x) {
-    return fixed_point(1.f) - (x*x)/2 + (x*x*x*x)/24 - (x*x*x*x*x*x*x)/720;
-}
-
-
-
-
-
+// TODO Find a better solution to avoid this silly workaround!
+// Workaround to avoid linking failures. See http://stackoverflow.com/a/8752879
+//template class fixed_point<16, 16>;
