@@ -3,5 +3,5 @@ project(cpp_bht_sose16_a02)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES fixed_point.cpp fixed_point.h fixed_point.test.cpp)
+set(SOURCE_FILES fixed_point.h fixed_point.test.cpp)
 add_executable(cpp_bht_sose16_a02 ${SOURCE_FILES})
