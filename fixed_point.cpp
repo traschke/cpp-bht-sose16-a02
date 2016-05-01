@@ -115,10 +115,10 @@ fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator-(fixed_p
 
 // TODO Values of type 'int64_t' may not fit into the receiver type 'int32_t'
 template <int8_t Decimal, int8_t Fraction>
-fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator*(fixed_point<Decimal, Fraction> rhs) const {
-    fixed_point<Decimal, Fraction> lhs = *this;
-    lhs.q = ((int64_t)lhs.q * (int64_t)rhs.q) >> 16;
-    return lhs;
+    fixed_point<Decimal, Fraction> fixed_point<Decimal, Fraction>::operator*(fixed_point<Decimal, Fraction> rhs) const {
+    doubled_impl_type temp = (((doubled_impl_type)q) * ((doubled_impl_type)rhs.q)) >> Fraction;
+    fixed_point<Decimal, Fraction> fp((impl_type)temp);
+    return fp;
 }
 
 template <int8_t Decimal, int8_t Fraction>
