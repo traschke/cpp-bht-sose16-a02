@@ -39,7 +39,6 @@ auto operator<<(std::ostream &os, fixed_point<Decimal, Fraction> const &f) -> st
     return os;
 }
 
-
 int main() {
     const fixed_point<16, 16> fp1(6.375f);
     const fixed_point<16, 16> fp2(-4.0f);
@@ -61,14 +60,12 @@ int main() {
     assert(fp2 <= fp1);
     assert(fp1 >= fp2);
 
-
     // -------------------------------------------------------------------------
     // arithmetics
     EXPECT_EQ((fixed_point<16, 16>(2.375f)), fp1 + fp2);
     EXPECT_EQ((fixed_point<16, 16>(10.375f)), fp1 - fp2);
     EXPECT_EQ((fixed_point<16, 16>(-25.5f)), fp1 * fp2);
     EXPECT_EQ((fixed_point<16, 16>(-1.59375f)), fp1 / fp2);
-
 
     // -------------------------------------------------------------------------
     // arithmetics assignment
@@ -101,7 +98,6 @@ int main() {
 
     // -------------------------------------------------------------------------
     // trigonometric functions
-    //TODO sin() and cos() tests!
     auto sinus1 = fixed_point<16, 16>(std::sin(0.5f));
     auto sinus2 = sin((fixed_point<16, 16>) (0.5f));
 
