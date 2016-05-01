@@ -51,9 +51,8 @@ int main()
     EXPECT_EQ(  6 , int(fp1) );
     EXPECT_EQ( -4 , int(fp2) );
 
-    //TODO Fix firend function abs()!
-//    EXPECT_EQ(  fp1 , abs(fp1) );
-//    EXPECT_EQ( -fp2 , abs(fp2) );
+    EXPECT_EQ(  fp1 , abs(fp1) );
+    EXPECT_EQ( -fp2 , abs(fp2) );
 
     // -------------------------------------------------------------------------
     // comparison and ordering
@@ -92,6 +91,6 @@ int main()
     // -------------------------------------------------------------------------
     // trigonometric functions
     //TODO sin() and cos() tests!
-    //EXPECT_CLOSE( fixed_point(std::sin(0.5f)) , sin(fixed_point(0.5f)) , fixed_point(0.01) );
-    //EXPECT_CLOSE( fixed_point(std::cos(0.5f)) , cos(fixed_point(0.5f)) , fixed_point(0.01) );
+//    EXPECT_CLOSE( (fixed_point<16,16>(std::sin(0.5f))) , sin((fixed_point<16,16>(0.5f))) , (fixed_point<16,16>(0.01)) );
+//    EXPECT_CLOSE( fixed_point(std::cos(0.5f)) , cos(fixed_point(0.5f)) , fixed_point(0.01) );
 }

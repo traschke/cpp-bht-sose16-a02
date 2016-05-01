@@ -75,19 +75,9 @@ public:
     }
 
     fixed_point operator*(fixed_point rhs) const {
-//        doubled_impl_type temp = (((doubled_impl_type)q) * ((doubled_impl_type)rhs.q)) >> Fraction;
-//        fixed_point<Decimal, Fraction> fp((impl_type)temp);
-//        return fp;
-
         fixed_point<Decimal, Fraction> tempFixed(*this);
-
-        impl_type result;
-        doubled_impl_type temp;
-
-        temp = (doubled_impl_type) q * (doubled_impl_type) rhs.q;
-        temp += Decimal;
-
-        result = (impl_type) temp;
+        doubled_impl_type temp = ((doubled_impl_type)q * (doubled_impl_type)rhs.q) >> Fraction;
+        impl_type result = (impl_type)temp;
 
         tempFixed.q = result;
 
