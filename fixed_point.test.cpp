@@ -91,6 +91,14 @@ int main()
     // -------------------------------------------------------------------------
     // trigonometric functions
     //TODO sin() and cos() tests!
-//    EXPECT_CLOSE( (fixed_point<16,16>(std::sin(0.5f))) , sin((fixed_point<16,16>(0.5f))) , (fixed_point<16,16>(0.01)) );
-//    EXPECT_CLOSE( fixed_point(std::cos(0.5f)) , cos(fixed_point(0.5f)) , fixed_point(0.01) );
+    auto sinus1 = fixed_point<16, 16>(std::sin(0.5f));
+    auto sinus2 = sin((fixed_point<16 ,16>)(0.5f));
+
+    auto cosine1 = fixed_point<16, 16>(std::cos(0.5f));
+    auto cosine2 = cos((fixed_point<16, 16>)(0.5f));
+
+    auto fpt = fixed_point<16 ,16>(0.01f);
+
+//    EXPECT_CLOSE(sinus1, sinus2, fpt);
+//    EXPECT_CLOSE(cosine1, cosine2, fpt);
 }

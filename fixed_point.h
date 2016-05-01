@@ -186,12 +186,12 @@ private:
 
 template <int8_t Decimal, int8_t Fraction>
 fixed_point<Decimal, Fraction> sin(fixed_point<Decimal, Fraction> x) {
-    return x - (x*x*x)/6 + (x*x*x*x*x)/120 - (x*x*x*x*x*x*x)/5040;
+    return x - (x*x*x) / 6 + (x*x*x*x*x) / 120 - (x*x*x*x*x*x*x) / 5040;
 };
 
 template <int8_t Decimal, int8_t Fraction>
 fixed_point<Decimal, Fraction> cos(fixed_point<Decimal, Fraction> x) {
-    return fixed_point<Decimal, Fraction>(1.f) - (x*x)/2 + (x*x*x*x)/24 - (x*x*x*x*x*x*x)/720;
+    return fixed_point<Decimal, Fraction>(1.f) - (x*x) / 2 + (x*x*x*x) / 24 - (x*x*x*x*x*x*x) / 720;
 };
 
 #endif //CPP_BHT_SOSE16_A02_FIXED_POINT_H
