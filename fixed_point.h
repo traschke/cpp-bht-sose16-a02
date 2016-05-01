@@ -29,6 +29,7 @@ template <int8_t Decimal, int8_t Fraction>
 class fixed_point {
     using impl_type = typename use_spd<Decimal + Fraction>::type;
     using doubled_impl_type = typename  use_spd<2*(Decimal + Fraction)>::type;
+
 public:
     fixed_point(float x) {
         q = x * std::pow(2, Fraction);
@@ -143,18 +144,23 @@ public:
     bool operator==(fixed_point rhs) const {
         return q == rhs.q;
     }
+
     bool operator!=(fixed_point rhs) const {
         return q != rhs.q;
     }
+
     bool operator<(fixed_point rhs) const {
         return q < rhs.q;
     }
+
     bool operator>(fixed_point rhs) const {
         return q > rhs.q;
     }
+
     bool operator<=(fixed_point rhs) const {
         return q <= rhs.q;
     }
+
     bool operator>=(fixed_point rhs) const {
         return q >= rhs.q;
     }
@@ -174,6 +180,7 @@ public:
         q -= std::pow(2, 16);
         return *this;
     }
+
     fixed_point operator--(int) {
         fixed_point<Decimal, Fraction> temp = *this;
         q -= std::pow(2, 16);
