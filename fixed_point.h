@@ -1,5 +1,5 @@
 //
-// Created by Timo on 18.04.2016.
+// Created by Timo and Khaled on 18.04.2016.
 //
 
 #ifndef CPP_BHT_SOSE16_A02_FIXED_POINT_H
