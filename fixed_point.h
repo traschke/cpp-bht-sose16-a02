@@ -11,7 +11,7 @@
 
 // numbertrait for always using the (s)mallest (p)ossible (d)atatype => spd
 template<int bitSize>
-struct use_spd{ using impl_type = int ; using doubled_impl_type = int64_t; };
+struct use_spd{ using type = typename use_spd<bitSize + 1>::type; };
 
 template<>
 struct use_spd <8> { using type = int8_t; };
@@ -44,13 +44,7 @@ public:
     }
 
     template <int8_t DecimalF, int8_t FractionF>
-    friend fixed_point<DecimalF, FractionF> abs(fixed_point<DecimalF, FractionF> fixedPoint) {
-        if (fixedPoint >= 0) {
-            return fixedPoint;
-        } else {
-            return -fixedPoint;
-        }
-    };
+    friend fixed_point<DecimalF, FractionF> abs(fixed_point<DecimalF, FractionF> fixedPoint);
 
     fixed_point operator+() const {
         fixed_point temp(*this);
@@ -166,29 +160,38 @@ public:
     }
 
     fixed_point& operator++() {
-        q += std::pow(2, 16);
+        q += std::pow(2, Fraction);
         return *this;
     }
 
     fixed_point operator++(int) {
         fixed_point<Decimal, Fraction> temp = *this;
-        q += std::pow(2, 16);
+        q += std::pow(2, Fraction);
         return temp;
     }
 
     fixed_point& operator--() {
-        q -= std::pow(2, 16);
+        q -= std::pow(2, Fraction);
         return *this;
     }
 
     fixed_point operator--(int) {
         fixed_point<Decimal, Fraction> temp = *this;
-        q -= std::pow(2, 16);
+        q -= std::pow(2, Fraction);
         return temp;
     }
 
 private:
     impl_type q;
+};
+
+template <int8_t DecimalF, int8_t FractionF>
+fixed_point<DecimalF, FractionF> abs(fixed_point<DecimalF, FractionF> fixedPoint) {
+    if (fixedPoint >= 0) {
+        return fixedPoint;
+    } else {
+        return -fixedPoint;
+    }
 };
 
 template <int8_t Decimal, int8_t Fraction>
